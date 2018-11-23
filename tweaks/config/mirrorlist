@@ -1,0 +1,3 @@
+Server = http://ftp.swin.edu.au/archlinux/$repo/os/$arch
+Server = http://mirror.internode.on.net/pub/archlinux/$repo/os/$arch
+Server = http://ftp.iinet.net.au/pub/archlinux/$repo/os/$arch
