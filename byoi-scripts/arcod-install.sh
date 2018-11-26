@@ -53,7 +53,7 @@ fi
 if pacman -Qi samba &> /dev/null; then
 	sudo systemctl enable smb.service
 	sudo systemctl enable nmb.service
-	sudo systemctl enable winbind.service
+	# sudo systemctl enable winbind.service - causes smb service to fail
 	# get smb.conf
 	sudo wget https://github.com/arcolinux/arcolinux-iso/raw/master/archiso/airootfs/etc/samba/smb.conf -O /etc/samba/smb.conf
 fi
