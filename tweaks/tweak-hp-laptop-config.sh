@@ -6,9 +6,6 @@ set -e
 #
 ##################################################################################################################
 
-# Set pacman mirros, add/remove packages
-sh ./tweak-config.sh
-
 # Install nVidia drivers and Bumblebee
 sudo pacman -S --noconfirm --needed nvidia bumblebee nvidia-utils bbswitch primus lib32-virtualgl lib32-nvidia-utils
 sudo gpasswd -a $USER bumblebee
@@ -24,7 +21,7 @@ sudo chown root:root  /usr/lib/systemd/system-sleep/reset_lan_after_sleep.sh
 
 # Install Bluetooth Driver
 sudo pacman --needed -S linux-headers dkms
-yay -S rtbth/rtbth-dkms-git
+yay -S rtbth-dkms-git
 sudo cp config/rtbth.conf /etc/modules-load.d/
 
 # Disable reflector service 
