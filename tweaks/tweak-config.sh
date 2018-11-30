@@ -26,15 +26,13 @@ sudo pacman -S --noconfirm intel-ucode
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # Add some extra packages
-yay --noconfirm --needed -S tamzen-font-git ttf-mac-fonts youtube-dl-gui-git youtube-dl
+yay --noconfirm --needed -S tamzen-font-git ttf-mac-fonts youtube-dl-gui-git youtube-dl ttf-pizzadude-bullets
 
 # Remove unwanted packages
 RemovePackages "urxvt-perls urxvt-resize-font-git rxvt-unicode rxvt-unicode-terminfo xterm"
-RemovePackages "geany vim atom electron"
+RemovePackages "geany vim vim-runtime atom apm electron"
 RemovePackages "variety arcolinux-variety-git plank arcolinux-plank-git arcolinux-plank-themes-git"
 RemovePackages "vivaldi-codecs-ffmpeg-extra-bin vivaldi chromium"
 RemovePackages "zsh-completions zsh-syntax-highlighting oh-my-zsh-git zsh"
 
-# remove nss-mdns
-RemovePackages "nss-mdns"
 sudo sed -i 's/mdns dns wins/dns/g' /etc/nsswitch.conf

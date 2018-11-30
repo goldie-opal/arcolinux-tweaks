@@ -154,7 +154,7 @@ pulseaudio-bluetooth
 
 #network
 avahi
-#nss-mdns
+nss-mdns
 mobile-broadband-provider-info
 modemmanager
 networkmanager
@@ -298,7 +298,7 @@ lightdm
 #gtk2-perl
 #obconf
 #openbox
-#gtk-engine-murrine
+gtk-engine-murrine
 
 #themes
 adapta-gtk-theme
@@ -316,6 +316,7 @@ dconf-editor
 dialog
 dmidecode
 evince
+expac
 file-roller
 #filezilla
 git
@@ -343,7 +344,6 @@ jsoncpp
 libmtp
 laptop-detect
 lsb-release
-#lxrandr
 mlocate
 nomacs
 p7zip
@@ -382,6 +382,7 @@ xapps
 #xcape
 xdg-desktop-portal-gtk
 xfburn
+youtube-dl
 zenity
 #zsh
 #zsh-completions
@@ -421,6 +422,7 @@ paper-icon-theme
 papirus-icon-theme-git
 sardi-icons
 surfn-icons-git
+zafiro-icon-theme
 
 #network
 b43-firmware
@@ -450,7 +452,6 @@ mugshot
 neofetch
 #oh-my-zsh-git
 #oomox
-#package-query
 pamac-aur
 peek
 pulseaudio-equalizer-ladspa
@@ -465,7 +466,6 @@ trizen
 wttr
 yad
 yay-bin
-#yaourt
 
 #############################
 #Games
@@ -492,7 +492,7 @@ arcolinux-config-git
 #arcolinux-config-mate-git
 #arcolinux-config-plasma-git
 arcolinux-conky-collection-git
-#arcolinux-docs-git
+arcolinux-docs-git
 arcolinux-faces-git
 arcolinux-fonts-git
 arcolinux-geany-git
@@ -501,6 +501,7 @@ arcolinux-keyring
 arcolinux-lightdm-gtk-greeter
 arcolinux-lightdm-gtk-greeter-settings
 arcolinux-local-git
+arcolinux-logo-git
 arcolinux-neofetch-git
 arcolinux-mirrorlist-git
 #arcolinux-nitrogen-git
@@ -556,7 +557,7 @@ xfwm4-themes
 ristretto
 thunar-archive-plugin
 thunar-media-tags-plugin
-#xfburn
+xfburn
 #xfce4-artwork
 xfce4-battery-plugin
 xfce4-clipman-plugin
@@ -590,4 +591,3 @@ xfce4-xkb-plugin
 
 xfce4-panel-profiles
 
-arcolinux-logo-git
