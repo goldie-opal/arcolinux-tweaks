@@ -6,6 +6,15 @@ set -e
 #
 ##################################################################################################################
 
+# Set pacman mirrors
+sudo cp config/mirrorlist /etc/pacman.d/mirrorlist
+sudo chown root:root /etc/pacman.d/mirrorlist
+sudo pacman -Sy
+
+# Install intel microcode
+sudo pacman -S --noconfirm intel-ucode
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
 # Install nVidia drivers 
 if pacman -Qi "conky-lua-archers" &> /dev/null; then
 	sudo pacman -R --noconfirm conky-lua-archers libxnvctrl
