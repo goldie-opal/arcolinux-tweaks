@@ -19,7 +19,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 if pacman -Qi "conky-lua-archers" &> /dev/null; then
 	sudo pacman -R --noconfirm conky-lua-archers libxnvctrl
 fi
-sudo pacman -S --noconfirm --needed nvidia-340xx nvidia-340xx-utils lib32-virtualgl lib32-nvidia-340xx-utils libxnvctrl-340xx nvidia-340xx-settings
+sudo pacman -S --noconfirm --needed nvidia-340xx nvidia-340xx-utils lib32-virtualgl lib32-nvidia-340xx-utils libxnvctrl-340xx
 yay conky-lua-archers
 
 # Disable reflector service when using local cache
