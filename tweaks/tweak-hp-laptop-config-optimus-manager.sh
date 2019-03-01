@@ -16,9 +16,9 @@ sudo pacman -S --noconfirm intel-ucode
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # Install nVidia drivers and Bumblebee
-sudo pacman -S --noconfirm --needed nvidia bumblebee nvidia-utils bbswitch primus lib32-virtualgl lib32-nvidia-utils lib32-primus nvidia-settings
-sudo gpasswd -a $USER bumblebee
-sudo systemctl enable bumblebeed.service
+sudo pacman -S --noconfirm --needed nvidia nvidia-utils bbswitch lib32-virtualgl lib32-nvidia-utils nvidia-settings
+yay -S optimus-manager
+sudo systemctl enable optimus-manager.service
 
 # Configure hw clock to use localtime for dual booting
 sudo timedatectl set-local-rtc 1 
