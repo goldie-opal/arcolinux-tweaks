@@ -6,6 +6,6 @@ set -e
 #
 ##################################################################################################################
 
-sudo pacman --needed -S lxappearance-gtk3 simplescreenrecorder galculator gimp qbittorrent ufw gufw lm_sensors nomacs timeshift xfburn ttf-ms-fonts 
-sudo pacman --needed -S htop hddtemp asciinema dmidecode gnome-screenshot glances playerctl
+sudo pacman -R variety arco-variety geany arco-geany chromium atom
+sudo pacman --needed -S lxappearance-gtk3 arcolinux-arc-themes-nico-git
 yay -S youtube-dl-gui-git ttf-mac-fonts tamzen-font-git mint-themes mint-x-icons mint-y-icons
