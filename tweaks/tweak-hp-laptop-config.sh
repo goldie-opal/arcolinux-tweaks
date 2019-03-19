@@ -6,11 +6,6 @@ set -e
 #
 ##################################################################################################################
 
-# Set pacman mirrors
-sudo cp config/mirrorlist /etc/pacman.d/mirrorlist
-sudo chown root:root /etc/pacman.d/mirrorlist
-sudo pacman -Sy
-
 # Install intel microcode
 sudo pacman -S --noconfirm intel-ucode
 sudo grub-mkconfig -o /boot/grub/grub.cfg
@@ -31,8 +26,5 @@ sudo chown root:root  /usr/lib/systemd/system-sleep/reset_lan_after_sleep.sh
 # Install Bluetooth Driver
 sudo pacman --needed -S linux-headers dkms
 yay -S rtbth-dkms-git
-sudo cp config/rtbth.conf /etc/modules-load.d/
-
-# Disable reflector service 
-sudo systemctl stop reflector.timer
-sudo systemctl disable reflector.timer
+sudo touch /etc/modules-load.d/rtbth.conf
+sudo echo 'rtbth' > /etc/modules-load.d/rtbth.conf

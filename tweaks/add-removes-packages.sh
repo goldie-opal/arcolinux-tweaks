@@ -8,4 +8,4 @@ set -e
 
 sudo pacman -R variety arco-variety geany arco-geany chromium atom
 sudo pacman --needed -S lxappearance-gtk3 arcolinux-arc-themes-nico-git
-yay -S youtube-dl-gui-git ttf-mac-fonts tamzen-font-git mint-themes mint-x-icons mint-y-icons
+yay -S youtube-dl-gui-git ttf-mac-fonts tamzen-font-git
