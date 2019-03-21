@@ -27,4 +27,7 @@ sudo chown root:root  /usr/lib/systemd/system-sleep/reset_lan_after_sleep.sh
 sudo pacman --needed -S linux-headers dkms
 yay -S rtbth-dkms-git
 sudo touch /etc/modules-load.d/rtbth.conf
-sudo echo 'rtbth' > /etc/modules-load.d/rtbth.conf
+sudo su -c 'echo -e "rtbth" > /etc/modules-load.d/rtbth.conf'
+
+# Install extra packages
+yay -S youtube-dl-gui-git ttf-mac-fonts tamzen-font-git
