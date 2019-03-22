@@ -42,3 +42,33 @@ sudo su -c 'echo -e "rtbth" > /etc/modules-load.d/rtbth.conf'
 
 # Install extra packages
 yay -S youtube-dl-gui-git ttf-mac-fonts tamzen-font-git
+
+# Remove unwanted packages if installed
+istOfPackages="chromium
+variety
+arcolinux-variety
+geany
+arcolinux-geany
+vivaldi
+vivaldi-codecs-ffmpeg-extra-bin
+vim
+atom
+apm
+electron
+nss-mdns
+xterm
+simple-scan
+ristretto"
+
+# Remove packages in list if installed
+for package in "$listOfPackages"
+do
+	if pacman -Qi $package &> /dev/null; then
+		sudo pacman -R --noconfirm $package
+	fi
+done
+
+# System tweaks
+# 8 Cores
+sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j9"/g' /etc/makepkg.conf
+sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 8 -z -)/g' /etc/makepkg.conf
