@@ -20,8 +20,19 @@ sudo timedatectl set-local-rtc 1
 sudo hwclock --systohc --local
 
 # Copy script to reset lan after waking
-sudo cp config/reset_lan_after_sleep.sh  /usr/lib/systemd/system-sleep/
-sudo chown root:root  /usr/lib/systemd/system-sleep/reset_lan_after_sleep.sh 
+sudo touch /usr/lib/systemd/system-sleep/reset_lan_after_sleep.sh 
+cat  <<'EOT' | sudo tee /usr/lib/systemd/system-sleep/reset_lan_after_sleep.sh 
+#!/bin/bash
+case $1/$2 in
+	pre/*)
+	;;
+	post/*)
+	 modprobe -r r8169
+         modprobe r8169
+	;;
+esac
+EOT
+sudo chmod +x /usr/lib/systemd/system-sleep/reset_lan_after_sleep.sh 
 
 # Install Bluetooth Driver
 sudo pacman --needed -S linux-headers dkms
