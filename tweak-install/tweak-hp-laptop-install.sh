@@ -44,7 +44,7 @@ sudo su -c 'echo -e "rtbth" > /etc/modules-load.d/rtbth.conf'
 yay -S youtube-dl-gui-git ttf-mac-fonts tamzen-font-git
 
 # Remove unwanted packages if installed
-istOfPackages="chromium
+listOfPackages="chromium
 variety
 arcolinux-variety
 geany
@@ -72,3 +72,7 @@ done
 # 8 Cores
 sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j9"/g' /etc/makepkg.conf
 sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 8 -z -)/g' /etc/makepkg.conf
+
+# Faster shutdown
+sudo systemctl stop lvm2-lvmetad.socket lvm2-lvmetad.service
+sudo systemctl disable lvm2-lvmetad.socket lvm2-lvmetad.service
