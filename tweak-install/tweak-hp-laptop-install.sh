@@ -49,8 +49,6 @@ variety
 arcolinux-variety
 geany
 arcolinux-geany
-vivaldi
-vivaldi-codecs-ffmpeg-extra-bin
 vim
 atom
 apm

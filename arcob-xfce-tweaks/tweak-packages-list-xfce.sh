@@ -16,8 +16,6 @@ sed -i '/^arcolinux-variety/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^geany/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^arcolinux-geany/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^arcolinux-arc-themes-git/s/^/#/' arco-xfce/archiso/packages.x86_64
-sed -i '/^vivaldi/s/^/#/' arco-xfce/archiso/packages.x86_64
-sed -i '/^vivaldi-codecs-ffmpeg-extra-bin/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^vim/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^atom/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^apm/s/^/#/' arco-xfce/archiso/packages.x86_64
