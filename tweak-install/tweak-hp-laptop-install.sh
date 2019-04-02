@@ -56,6 +56,8 @@ electron
 nss-mdns
 xterm
 simple-scan
+amd-ucode
+xf86-video-amdgpu
 ristretto"
 
 # Remove packages in list if installed
