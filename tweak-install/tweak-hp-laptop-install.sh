@@ -79,3 +79,4 @@ REPLACE="use_lvmetad = 0"
 find /etc/lvm/lvm.conf -type f -exec sudo sed -i "s/$FIND/$REPLACE/g" {} \;
 sudo systemctl stop lvm2-lvmetad.socket lvm2-lvmetad.service
 sudo systemctl disable lvm2-lvmetad.socket lvm2-lvmetad.service
+sudo systemctl mask lvm2-monitor
