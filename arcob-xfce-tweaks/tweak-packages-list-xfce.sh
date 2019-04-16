@@ -23,8 +23,8 @@ sed -i '/^nss-mdns/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^xterm/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^simple-scan/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^ristretto/s/^/#/' arco-xfce/archiso/packages.x86_64
-sed -i '/^openresolv/s/^/#/' arco-xfce/archiso/packages.x86_64
+#sed -i '/^openresolv/s/^/#/' arco-xfce/archiso/packages.x86_64
 
 # add extra packages
-echo systemd-resolvconf >> arco-xfce/archiso/packages.x86_64
+#echo systemd-resolvconf >> arco-xfce/archiso/packages.x86_64
 echo lxappearance-gtk3 >> arco-xfce/archiso/packages.x86_64
