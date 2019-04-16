@@ -15,7 +15,6 @@ sed -i '/^variety/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^arcolinux-variety/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^geany/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^arcolinux-geany/s/^/#/' arco-xfce/archiso/packages.x86_64
-sed -i '/^arcolinux-arc-themes-git/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^vim/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^atom/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^apm/s/^/#/' arco-xfce/archiso/packages.x86_64
@@ -24,7 +23,8 @@ sed -i '/^nss-mdns/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^xterm/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^simple-scan/s/^/#/' arco-xfce/archiso/packages.x86_64
 sed -i '/^ristretto/s/^/#/' arco-xfce/archiso/packages.x86_64
+sed -i '/^openresolv/s/^/#/' arco-xfce/archiso/packages.x86_64
 
 # add extra packages
+echo systemd-resolvconf >> arco-xfce/archiso/packages.x86_64
 echo lxappearance-gtk3 >> arco-xfce/archiso/packages.x86_64
-echo arcolinux-arc-themes-nico-git  >> arco-xfce/archiso/packages.x86_64
