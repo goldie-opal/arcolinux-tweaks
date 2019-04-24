@@ -45,7 +45,6 @@ yay -S youtube-dl-gui-git ttf-mac-fonts tamzen-font-git plata-theme-slim
 
 # Fix dns
 sudo pacman -S systemd-resolvconf
-sudo pacman -R openresolv
 
 # Remove unwanted packages if installed
 listOfPackages="chromium
