@@ -7,4 +7,4 @@ set -e
 ##################################################################################################################
 
 yay mint-themes
-dconf load / < cinnamon_desktop_backup
+dconf load /org/cinnamon/ < cinnamon_desktop_backup
