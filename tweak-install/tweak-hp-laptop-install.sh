@@ -41,7 +41,7 @@ sudo touch /etc/modules-load.d/rtbth.conf
 sudo su -c 'echo -e "rtbth" > /etc/modules-load.d/rtbth.conf'
 
 # Install extra packages
-yay -S youtube-dl-gui-git ttf-mac-fonts tamzen-font-git plata-theme-slim qogir-gtk-theme-git
+yay -S youtube-dl-gui-git ttf-mac-fonts tamzen-font-git
 
 # Fix dns
 sudo pacman -S systemd-resolvconf

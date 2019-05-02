@@ -1,288 +1,33 @@
 [/]
-alttab-switcher-delay=100
-app-menu-label=''
 enabled-applets=['panel1:left:0:menu@cinnamon.org:12', 'panel1:left:1:show-desktop@cinnamon.org:13', 'panel1:left:2:grouped-window-list@cinnamon.org:14', 'panel1:right:0:systray@cinnamon.org:15', 'panel1:right:1:keyboard@cinnamon.org:16', 'panel1:right:2:notifications@cinnamon.org:17', 'panel1:right:3:removable-drives@cinnamon.org:18', 'panel1:right:4:network@cinnamon.org:19', 'panel1:right:5:sound@cinnamon.org:20', 'panel1:right:6:power@cinnamon.org:21', 'panel1:right:7:calendar@cinnamon.org:22']
-favorite-apps=['vivaldi-stable.desktop', 'cinnamon-settings.desktop', 'cinnamon-settings-themes.desktop', 'org.gnome.Terminal.desktop', 'nemo.desktop', 'Thunar.desktop']
 next-applet-id=23
-panel-launchers=['DEPRECATED']
+app-menu-label=''
 panel-zone-icon-sizes='[{"panelId": 1, "left": 0, "center": 0, "right": 24}]'
-panels-enabled=['1:0:bottom']
 panels-height=['1:40']
+panels-enabled=['1:0:bottom']
 
 [desktop/a11y/applications]
 screen-keyboard-enabled=false
 screen-reader-enabled=false
 
 [desktop/a11y/mouse]
-dwell-click-enabled=false
-dwell-threshold=10
-dwell-time=1.2
 secondary-click-enabled=false
 secondary-click-time=1.2
-
-[desktop/background]
-picture-uri='file:///usr/share/backgrounds/arcolinux/yosemite-sunset-3840x2160.jpg'
-
-[desktop/background/slideshow]
-delay=15
-image-source='directory:///usr/share/backgrounds/arcolinux'
+dwell-time=1.2
+dwell-threshold=10
+dwell-click-enabled=false
 
 [desktop/interface]
-cursor-blink-time=1200
-cursor-theme='Breeze_Snow'
-font-name='Noto Sans 11'
-gtk-theme='Mint-Y-Aqua'
-icon-theme='Mint-Y-Aqua'
-text-scaling-factor=1.0
+icon-theme='Mint-Y'
+gtk-theme='Mint-Y'
 toolkit-accessibility=false
-
-[desktop/keybindings]
-custom-list=['custom0', 'custom1', 'custom2', 'custom3', 'custom4', 'custom5', 'custom7', 'custom8', 'custom9', 'custom10', 'custom11', 'custom12', 'custom13', 'custom14', 'custom15', 'custom16', 'custom17', 'custom18', 'custom19', 'custom20', 'custom21', 'custom22', 'custom23', 'custom24', 'custom25', 'custom26', 'custom27', 'custom28', 'custom29', 'custom30', 'custom31', 'custom32', 'custom33', 'custom34', 'custom35', 'custom36', 'custom37', 'custom38', 'custom39', 'custom40', 'custom41', 'custom42', 'custom43', 'custom44']
-
-[desktop/keybindings/custom-keybindings/custom0]
-binding=['<Shift><Alt>Return']
-command='nemo'
-name='nemo'
-
-[desktop/keybindings/custom-keybindings/custom1]
-binding=['<Primary><Alt>c']
-command='catfish'
-name='catfish'
-
-[desktop/keybindings/custom-keybindings/custom10]
-binding=['<Primary><Alt>f']
-command='firefox'
-name='firefox'
-
-[desktop/keybindings/custom-keybindings/custom11]
-binding=['<Super>e']
-command='geany'
-name='geany'
-
-[desktop/keybindings/custom-keybindings/custom12]
-binding=['<Super>F4']
-command='gimp'
-name='gimp'
-
-[desktop/keybindings/custom-keybindings/custom13]
-binding=['<Shift><Super>Print']
-command='gnome-screenshot -i'
-name='gnome-screenshot -i'
-
-[desktop/keybindings/custom-keybindings/custom14]
-binding=['<Super>F3']
-command='inkscape'
-name='inkscape'
-
-[desktop/keybindings/custom-keybindings/custom15]
-binding=['<Super>F5']
-command='meld'
-name='meld'
-
-[desktop/keybindings/custom-keybindings/custom16]
-binding=['<Primary><Alt>p']
-command='pamac-manager'
-name='pamac-manager'
-
-[desktop/keybindings/custom-keybindings/custom17]
-binding=['<Primary><Alt>u']
-command='pavucontrol'
-name='pavucontrol'
-
-[desktop/keybindings/custom-keybindings/custom18]
-binding=['<Super>v']
-command='pavucontrol'
-name='pavucontrol'
-
-[desktop/keybindings/custom-keybindings/custom19]
-binding=['<Super>m']
-command='pragha'
-name='pragha'
-
-[desktop/keybindings/custom-keybindings/custom2]
-binding=['<Primary><Alt>g']
-command='chromium'
-name='chromium'
-
-[desktop/keybindings/custom-keybindings/custom20]
-binding=['<Primary><Alt>s']
-command='spotify'
-name='spotify'
-
-[desktop/keybindings/custom-keybindings/custom21]
-binding=['<Super>F10']
-command='spotify'
-name='spotify'
-
-[desktop/keybindings/custom-keybindings/custom22]
-binding=['<Super>F2']
-command='subl3'
-name='subl3'
-
-[desktop/keybindings/custom-keybindings/custom23]
-binding=['<Primary><Alt>w']
-command='subl3'
-name='subl3'
-
-[desktop/keybindings/custom-keybindings/custom24]
-binding=['<Shift><Super>Return']
-command='thunar'
-name='thunar'
-
-[desktop/keybindings/custom-keybindings/custom25]
-binding=['<Primary><Alt>b']
-command='thunar'
-name='thunar'
-
-[desktop/keybindings/custom-keybindings/custom26]
-binding=['<Super>F8']
-command='thunar'
-name='thunar'
-
-[desktop/keybindings/custom-keybindings/custom27]
-binding=['<Super>t']
-command='urxvt'
-name='urxvt'
-
-[desktop/keybindings/custom-keybindings/custom28]
-binding=['<Super>h']
-command="urxvt -T 'htop task manager' -e htop"
-name="urxvt -T 'htop task manager' -e htop"
-
-[desktop/keybindings/custom-keybindings/custom29]
-binding=['<Alt>f']
-command='variety -f'
-name='variety -f'
-
-[desktop/keybindings/custom-keybindings/custom3]
-binding=['<Super>F9']
-command='evolution'
-name='evolution'
-
-[desktop/keybindings/custom-keybindings/custom30]
-binding=['<Alt>n']
-command='variety -n'
-name='variety -n'
-
-[desktop/keybindings/custom-keybindings/custom31]
-binding=['<Alt>Right']
-command='variety -n'
-name='variety -n'
-
-[desktop/keybindings/custom-keybindings/custom32]
-binding=['<Alt>p']
-command='variety -p'
-name='variety -p'
-
-[desktop/keybindings/custom-keybindings/custom33]
-binding=['<Alt>Left']
-command='variety -p'
-name='variety -p'
-
-[desktop/keybindings/custom-keybindings/custom34]
-binding=['<Alt>Down']
-command='variety --resume'
-name='variety --resume'
-
-[desktop/keybindings/custom-keybindings/custom35]
-binding=['<Alt>t']
-command='variety -t'
-name='variety -t'
-
-[desktop/keybindings/custom-keybindings/custom36]
-binding=['<Alt>Up']
-command='variety --toggle-pause'
-name='variety --toggle-pause'
-
-[desktop/keybindings/custom-keybindings/custom37]
-binding=['<Super>F7']
-command='virtualbox'
-name='virtualbox'
-
-[desktop/keybindings/custom-keybindings/custom38]
-binding=['<Primary><Alt>v']
-command='vivaldi-stable'
-name='vivaldi-stable'
-
-[desktop/keybindings/custom-keybindings/custom39]
-binding=['<Super>F6']
-command='vlc'
-name='vlc'
-
-[desktop/keybindings/custom-keybindings/custom4]
-binding=['<Super>f']
-command='exo-open --launch FileManager'
-name='exo-open --launch FileManager'
-
-[desktop/keybindings/custom-keybindings/custom40]
-binding=['<Super>Pause']
-command='cinnamon-session-quit --power-off'
-name='cinnamon-session-quit --power-off'
-
-[desktop/keybindings/custom-keybindings/custom41]
-binding=['<Super>x']
-command='cinnamon-session-quit --power-off'
-name='cinnamon-session-quit --power-off'
-
-[desktop/keybindings/custom-keybindings/custom42]
-binding=['<Primary><Alt>m']
-command='cinnamon-settings'
-name='cinnamon-settings'
-
-[desktop/keybindings/custom-keybindings/custom43]
-binding=['<Primary><Shift>Escape']
-command='gnome-system-monitor'
-name='gnome-system-monitor'
-
-[desktop/keybindings/custom-keybindings/custom44]
-binding=['<Super>Escape']
-command='xkill'
-name='xkill'
-
-[desktop/keybindings/custom-keybindings/custom5]
-binding=['<Primary><Alt>t']
-command='exo-open --launch TerminalEmulator'
-name='exo-open --launch TerminalEmulator'
-
-[desktop/keybindings/custom-keybindings/custom7]
-binding=['<Super>Return']
-command='exo-open --launch TerminalEmulator'
-name='exo-open --launch TerminalEmulator'
-
-[desktop/keybindings/custom-keybindings/custom8]
-binding=['<Super>F1']
-command='exo-open --launch webBrowser'
-name='exo-open --launch webBrowser'
-
-[desktop/keybindings/custom-keybindings/custom9]
-binding=['<Super>w']
-command='exo-open --launch webBrowser'
-name='exo-open --launch webBrowser'
-
-[desktop/keybindings/media-keys]
-home=['XF86Explorer']
-terminal=@as []
-
-[desktop/keybindings/wm]
-close=['<Alt>F4', '<Super>q']
 
 [desktop/sound]
 event-sounds=false
 
 [desktop/wm/preferences]
-min-window-opacity=30
 theme='Mint-Y'
-titlebar-font='Noto Sans 11'
-
-[muffin]
-resize-threshold=24
-tile-hud-threshold=25
-tile-maximize=true
-
-[settings-daemon/peripherals/keyboard]
-delay=uint32 500
-repeat-interval=uint32 30
 
 [theme]
-name='Mint-Y-Dark-Aqua'
 theme-cache-updated=1556628659
+name='Mint-Y-Dark'
