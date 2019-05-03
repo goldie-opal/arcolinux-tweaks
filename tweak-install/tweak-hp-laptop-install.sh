@@ -35,7 +35,7 @@ EOT
 sudo chmod +x /usr/lib/systemd/system-sleep/reset_lan_after_sleep.sh 
 
 # Install Bluetooth Driver
-sudo pacman --needed -S linux-headers dkms
+sudo pacman --needed --noconfirm -S linux-headers dkms
 yay -S rtbth-dkms-git
 sudo touch /etc/modules-load.d/rtbth.conf
 sudo su -c 'echo -e "rtbth" > /etc/modules-load.d/rtbth.conf'
@@ -44,7 +44,7 @@ sudo su -c 'echo -e "rtbth" > /etc/modules-load.d/rtbth.conf'
 yay -S youtube-dl-gui-git ttf-mac-fonts tamzen-font-git
 
 # Fix dns
-sudo pacman -S systemd-resolvconf
+sudo pacman -S --noconfirm systemd-resolvconf
 
 # Remove unwanted packages if installed
 listOfPackages="chromium
