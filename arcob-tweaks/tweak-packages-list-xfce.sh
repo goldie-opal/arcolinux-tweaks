@@ -28,5 +28,5 @@ sed -i '/^ristretto/s/^/#/' arco-xfce/archiso/packages.x86_64
 # add extra packages
 #echo systemd-resolvconf >> arco-xfce/archiso/packages.x86_64
 echo lxappearance-gtk3 >> arco-xfce/archiso/packages.x86_64
-echo pepperfash >> arco-xfce/archiso/packages.x86_64
+echo pepper-flash >> arco-xfce/archiso/packages.x86_64
 echo flashplugin >> arco-xfce/archiso/packages.x86_64
