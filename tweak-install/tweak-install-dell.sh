@@ -23,6 +23,7 @@ sudo pacman -S --noconfirm --needed nvidia-340xx nvidia-340xx-utils lib32-virtua
 
 # Install extra packages
 yay -S youtube-dl-gui-git ttf-mac-fonts tamzen-font-git
+sudo pacman -S --noconfirm --needed pepper-flash flashplugin
 
 # Remove unwanted packages if installed
 listOfPackages="chromium

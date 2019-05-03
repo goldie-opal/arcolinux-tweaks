@@ -23,3 +23,6 @@ sed -i '/^nss-mdns/s/^/#/' arco-cinnamon/archiso/packages.x86_64
 sed -i '/^xterm/s/^/#/' arco-cinnamon/archiso/packages.x86_64
 sed -i '/^simple-scan/s/^/#/' arco-cinnamon/archiso/packages.x86_64
 sed -i '/^ristretto/s/^/#/' arco-cinnamon/archiso/packages.x86_64
+
+echo pepperfash >> arco-xfce/archiso/packages.x86_64
+echo flashplugin >> arco-xfce/archiso/packages.x86_64

@@ -42,6 +42,7 @@ sudo su -c 'echo -e "rtbth" > /etc/modules-load.d/rtbth.conf'
 
 # Install extra packages
 yay -S youtube-dl-gui-git ttf-mac-fonts tamzen-font-git
+sudo pacman -S --noconfirm --needed pepper-flash flashplugin
 
 # Fix dns
 sudo pacman -S --noconfirm systemd-resolvconf
