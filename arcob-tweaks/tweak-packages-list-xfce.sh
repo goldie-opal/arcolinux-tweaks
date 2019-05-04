@@ -30,3 +30,14 @@ sed -i '/^ristretto/s/^/#/' arco-xfce/archiso/packages.x86_64
 echo lxappearance-gtk3 >> arco-xfce/archiso/packages.x86_64
 echo pepper-flash >> arco-xfce/archiso/packages.x86_64
 echo flashplugin >> arco-xfce/archiso/packages.x86_64
+#
+#[go_arcolinux_repo_iso]
+#SigLevel = Required DatabaseOptional
+#Server = https://goldie-opal.github.io/$repo/$arch
+#
+#echo mint-x-icons >> arco-cinnamon/archiso/packages.x86_64
+#echo mint-y-icons >> arco-cinnamon/archiso/packages.x86_64
+#echo mint-themes >> arco-cinnamon/archiso/packages.x86_64
+#echo youtube-dl-gui-git >> arco-cinnamon/archiso/packages.x86_64
+#echo ttf-mac-fonts >> arco-cinnamon/archiso/packages.x86_64
+#echo tamzen-font-git >> arco-cinnamon/archiso/packages.x86_64
