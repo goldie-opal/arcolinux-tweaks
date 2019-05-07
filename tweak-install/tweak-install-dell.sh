@@ -21,35 +21,6 @@ fi
 sudo pacman -S --noconfirm --needed nvidia-340xx nvidia-340xx-utils lib32-virtualgl lib32-nvidia-340xx-utils libxnvctrl-340xx
 
 
-# Install extra packages
-yay -S youtube-dl-gui-git ttf-mac-fonts tamzen-font-git
-sudo pacman -S --noconfirm --needed pepper-flash flashplugin
-
-# Remove unwanted packages if installed
-listOfPackages="chromium
-variety
-arcolinux-variety
-geany
-arcolinux-geany
-vim
-atom
-apm
-electron
-nss-mdns
-xterm
-simple-scan
-amd-ucode
-xf86-video-amdgpu
-ristretto"
-
-# Remove packages in list if installed
-for package in "$listOfPackages"
-do
-	if pacman -Qi $package &> /dev/null; then
-		sudo pacman -R --noconfirm $package
-	fi
-done
-
 # Faster shutdown
 FIND="use_lvmetad = 1"
 REPLACE="use_lvmetad = 0"

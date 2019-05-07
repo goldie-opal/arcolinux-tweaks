@@ -40,37 +40,8 @@ yay -S rtbth-dkms-git
 sudo touch /etc/modules-load.d/rtbth.conf
 sudo su -c 'echo -e "rtbth" > /etc/modules-load.d/rtbth.conf'
 
-# Install extra packages
-yay -S youtube-dl-gui-git ttf-mac-fonts tamzen-font-git
-sudo pacman -S --noconfirm --needed pepper-flash flashplugin
-
 # Fix dns
 sudo pacman -S --noconfirm systemd-resolvconf
-
-# Remove unwanted packages if installed
-listOfPackages="chromium
-variety
-arcolinux-variety
-geany
-arcolinux-geany
-vim
-atom
-apm
-electron
-nss-mdns
-xterm
-simple-scan
-amd-ucode
-xf86-video-amdgpu
-ristretto"
-
-# Remove packages in list if installed
-for package in "$listOfPackages"
-do
-	if pacman -Qi $package &> /dev/null; then
-		sudo pacman -R --noconfirm $package
-	fi
-done
 
 # System tweaks
 # 8 Cores
