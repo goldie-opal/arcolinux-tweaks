@@ -84,10 +84,10 @@ xdg-user-dirs-update
 
 # Copy all files and folders from /etc/skel to ~
 cp -rT /etc/skel ~
+cp ~/.bashrc-latest ~/.bashrc
 
 # cleanup
 rm pacman.conf
-
 
 # Use all cores
 ~/.bin/main/000-use-all-cores-makepkg-conf-v3.sh
@@ -101,4 +101,4 @@ sudo systemctl disable lvm2-lvmetad.socket lvm2-lvmetad.service
 sudo systemctl mask lvm2-monitor
 
 # Fix dns
-sudo pacman -S --noconfirm systemd-resolvconf
+sudo pacman -S systemd-resolvconf
