@@ -1,0 +1,5 @@
+
+# My custom iso repo
+[go_arcolinux_repo_iso]
+SigLevel = Never
+Server = https://goldie-opal.github.io/$repo/$arch
