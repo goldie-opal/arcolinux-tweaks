@@ -41,7 +41,7 @@ sudo touch /etc/modules-load.d/rtbth.conf
 sudo su -c 'echo -e "rtbth" > /etc/modules-load.d/rtbth.conf'
 
 # Fix dns
-sudo pacman -S --noconfirm systemd-resolvconf
+sudo pacman -S systemd-resolvconf
 
 # System tweaks
 # 8 Cores
