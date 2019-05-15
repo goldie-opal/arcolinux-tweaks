@@ -1,0 +1,9 @@
+[desktop/interface]
+icon-theme='Mint-Y-Aqua'
+gtk-theme='Mint-Y-Aqua'
+
+[desktop/wm/preferences]
+theme='Mint-Y'
+
+[theme]
+name='Mint-Y-Dark-Aqua'

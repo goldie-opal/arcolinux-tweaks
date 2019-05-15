@@ -1,0 +1,15 @@
+
+
+[desktop/interface]
+gtk-theme='vimix-dark-laptop-doder'
+icon-theme='Vimix-Doder'
+
+[desktop/wm/preferences]
+min-window-opacity=30
+theme='vimix-dark-laptop-doder'
+titlebar-font='Noto Sans 11'
+
+
+[theme]
+name='vimix-dark-laptop-doder'
+symbolic-relative-size=0.67000000000000004
