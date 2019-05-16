@@ -1,0 +1,15 @@
+
+
+[desktop/interface]
+gtk-theme='Windows10'
+icon-theme='Windows10'
+
+[desktop/wm/preferences]
+min-window-opacity=30
+theme='Windows10'
+titlebar-font='Noto Sans 11'
+
+
+[theme]
+name='Windows10'
+symbolic-relative-size=0.67000000000000004
