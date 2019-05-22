@@ -34,11 +34,11 @@ esac
 EOT
 sudo chmod +x /usr/lib/systemd/system-sleep/reset_lan_after_sleep.sh 
 
-# Install Bluetooth Driver
-sudo pacman --needed --noconfirm -S linux-headers dkms
-yay -S rtbth-dkms-git
-sudo touch /etc/modules-load.d/rtbth.conf
-sudo su -c 'echo -e "rtbth" > /etc/modules-load.d/rtbth.conf'
+# Install Bluetooth Driver -  may be causing issues with latest kernels
+#sudo pacman --needed --noconfirm -S linux-headers dkms
+#yay -S rtbth-dkms-git
+#sudo touch /etc/modules-load.d/rtbth.conf
+#sudo su -c 'echo -e "rtbth" > /etc/modules-load.d/rtbth.conf'
 
 # Fix dns
 sudo pacman -S systemd-resolvconf
