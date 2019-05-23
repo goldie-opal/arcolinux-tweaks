@@ -55,15 +55,19 @@ function installBlueToothDriver() {
 	sudo su -c 'echo -e "rtbth" > /etc/modules-load.d/rtbth.conf'
 }
 
+function setPeriodicTrim() {
+	#Enable periodic trim
+	sudo sed -i 's/,discard / /g' /etc/fstab
+	sudo systemctl enable fstrim.timer
+	sudo systemctl start fstrim.timer
+}
 
 function applyTweaks() {
 	# Fix dns
 	sudo pacman -S systemd-resolvconf
 
-	# System tweaks
-	# 8 Cores
-	sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j9"/g' /etc/makepkg.conf
-	sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 8 -z -)/g' /etc/makepkg.conf
+	# Set number of cores
+	~/.bin/main/000-use-all-cores-makepkg-conf-v3.sh
 
 	# Faster shutdown
 	FIND="use_lvmetad = 1"
@@ -72,12 +76,6 @@ function applyTweaks() {
 	sudo systemctl stop lvm2-lvmetad.socket lvm2-lvmetad.service
 	sudo systemctl disable lvm2-lvmetad.socket lvm2-lvmetad.service
 	sudo systemctl mask lvm2-monitor
-
-	#Enable periodic trim
-	sudo sed -i 's/,discard / /g' /etc/fstab
-	sudo systemctl enable fstrim.timer
-	sudo systemctl start fstrim.timer
-
 }
 
 installIntelUcode
@@ -85,4 +83,5 @@ installNvidiaDrivers
 setHardwareClock
 #resetLAN
 #installBlueToothDriver
+setPeriodicTrim
 applyTweaks

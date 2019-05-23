@@ -18,7 +18,7 @@ function setHardwareClock() {
 	sudo hwclock --systohc --local
 }
 
-function installNvidiaDrivers() {
+function installNvidia340Drivers() {
 	# Install nVidia drivers 
 	if pacman -Qi "conky-lua-archers" &> /dev/null; then
 		sudo pacman -R --noconfirm conky-lua-archers libxnvctrl
@@ -31,6 +31,9 @@ function applyTweaks() {
 	# Fix dns
 	sudo pacman -S systemd-resolvconf
 
+	# Set number of cores
+	~/.bin/main/000-use-all-cores-makepkg-conf-v3.sh
+
 	# Faster shutdown
 	FIND="use_lvmetad = 1"
 	REPLACE="use_lvmetad = 0"
@@ -41,6 +44,6 @@ function applyTweaks() {
 }
 
 installIntelUcode
-installNvidiaDrivers
+installNvidia340Drivers
 setHardwareClock
 applyTweaks
