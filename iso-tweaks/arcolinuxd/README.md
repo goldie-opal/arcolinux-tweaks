@@ -1,2 +1,0 @@
-# arcolinuxd
-My custom ArcoLinuxD

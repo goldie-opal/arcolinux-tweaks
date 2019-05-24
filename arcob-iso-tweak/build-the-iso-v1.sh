@@ -15,10 +15,13 @@
 #
 ##################################################################################################################
 
+
 #Setting variables
 #Let us change the name"
 #First letter of desktop small
-desktop="xfce"
+desktop="cinnamon"
+read -p "Which iso to download and tweak? Eg: cinnamon : " desktop
+
 
 #build.sh
 oldname1="iso_name=arcolinux"
@@ -50,11 +53,11 @@ echo "Phase 1 : clean up and download the latest ArcoLinux-iso from github"
 echo "################################################################## "
 echo
 echo "Deleting the work folder if one exists"
-[ -d ../work ] && rm -rf ../work
+[ -d work ] && rm -rf work
 echo "Deleting the build folder if one exists - takes some time"
 [ -d ~/arcolinuxb-build ] && sudo rm -rf ~/arcolinuxb-build
 echo "Git cloning files and folder to work folder"
-git clone https://github.com/arcolinux/arcolinux-iso ../work
+git clone https://github.com/arcolinux/arcolinux-iso work
 
 echo
 echo "################################################################## "
@@ -62,31 +65,32 @@ echo "Phase 2 : Getting the latest versions for some important files"
 echo "################################################################## "
 echo
 echo "Removing the old packages.x86_64 file from work folder"
-rm -f ../work/archiso/packages.x86_64
+rm -f work/archiso/packages.x86_64
 echo "Copying the new packages.x86_64 file"
-wget https://github.com/arcolinuxb/arco-xfce/raw/master/archiso/packages.x86_64 -O ../work/archiso/packages.x86_64 
+wget https://github.com/arcolinuxb/arco-$desktop/raw/master/archiso/packages.x86_64 -O work/archiso/packages.x86_64 
 
 # Update packages.x86_64 file
-cat ../tweaks/add-packages >> ../work/archiso/packages.x86_64
-cat ../tweaks/remove-packages | while read line
+cat tweaks/add-packages >> work/archiso/packages.x86_64
+cat tweaks/remove-packages | while read line
 do
-	sed -i "/^$line/s/^/#/" ../work/archiso/packages.x86_64
+	sed -i "/^$line/s/^/#/" work/archiso/packages.x86_64
 done
 
 echo "Updating repo list"
-cat ../tweaks/add-iso-repo >> ../work/archiso/pacman.conf
-cat ../tweaks/add-custom-repo >> ../work/archiso/pacman.conf.work_dir
+cat tweaks/add-iso-repo >> work/archiso/pacman.conf
+cat tweaks/add-custom-repo >> work/archiso/pacman.conf.work_dir
 
 # Update timezone
-sed -i 's/hwclock --systohc --utc/hwclock --systohc --local/' ../work/archiso/airootfs/root/customize_airootfs.sh
-sed -i 's/zoneinfo\/UTC/zoneinfo\/Australia\/Brisbane/' ../work/archiso/airootfs/root/customize_airootfs.sh
-sed -i 's/en_US.UTF-8/en_AU.UTF-8/' ../work/archiso/airootfs/root/customize_airootfs.sh
+sed -i 's/hwclock --systohc --utc/hwclock --systohc --local/' work/archiso/airootfs/root/customize_airootfs.sh
+sed -i 's/zoneinfo\/UTC/zoneinfo\/Australia\/Brisbane/' work/archiso/airootfs/root/customize_airootfs.sh
+sed -i 's/en_US.UTF-8/en_AU.UTF-8/' work/archiso/airootfs/root/customize_airootfs.sh
+
 
 echo "Removing old files/folders from /etc/skel"
-rm -rf ../work/archiso/airootfs/etc/skel/.* 2> /dev/null
+rm -rf work/archiso/airootfs/etc/skel/.* 2> /dev/null
 
 echo "getting .bashrc from arcolinux-root"
-wget https://raw.githubusercontent.com/arcolinux/arcolinux-root/master/etc/skel/.bashrc-latest -O ../work/archiso/airootfs/etc/skel/.bashrc
+wget https://raw.githubusercontent.com/arcolinux/arcolinux-root/master/etc/skel/.bashrc-latest -O work/archiso/airootfs/etc/skel/.bashrc
 
 echo
 echo "################################################################## "
@@ -95,14 +99,14 @@ echo "################################################################## "
 echo
 echo "Renaming to ArcoLinuxB"-$desktop
 
-sed -i 's/'$oldname1'/'$newname1'/g' ../work/archiso/build.sh
-sed -i 's/'$oldname2'/'$newname2'/g' ../work/archiso/build.sh
-sed -i 's/'$oldname3'/'$newname3'/g' ../work/archiso/airootfs/etc/os-release
-sed -i 's/'$oldname4'/'$newname4'/g' ../work/archiso/airootfs/etc/os-release
-sed -i 's/'$oldname5'/'$newname5'/g' ../work/archiso/airootfs/etc/lsb-release
-sed -i 's/'$oldname6'/'$newname6'/g' ../work/archiso/airootfs/etc/lsb-release
-sed -i 's/'$oldname7'/'$newname7'/g' ../work/archiso/airootfs/etc/hosts
-sed -i 's/'$oldname7'/'$newname7'/g' ../work/archiso/airootfs/etc/hostname
+sed -i 's/'$oldname1'/'$newname1'/g' work/archiso/build.sh
+sed -i 's/'$oldname2'/'$newname2'/g' work/archiso/build.sh
+sed -i 's/'$oldname3'/'$newname3'/g' work/archiso/airootfs/etc/os-release
+sed -i 's/'$oldname4'/'$newname4'/g' work/archiso/airootfs/etc/os-release
+sed -i 's/'$oldname5'/'$newname5'/g' work/archiso/airootfs/etc/lsb-release
+sed -i 's/'$oldname6'/'$newname6'/g' work/archiso/airootfs/etc/lsb-release
+sed -i 's/'$oldname7'/'$newname7'/g' work/archiso/airootfs/etc/hosts
+sed -i 's/'$oldname7'/'$newname7'/g' work/archiso/airootfs/etc/hostname
 
 echo
 echo "################################################################## "
@@ -179,18 +183,16 @@ else
 
 fi
 
-
-
 echo "Copying files and folder to ~/arcolinuxb-build as root"
 sudo mkdir ~/arcolinuxb-build
-sudo cp -r ../work/* ~/arcolinuxb-build
+sudo cp -r work/* ~/arcolinuxb-build
 
 sudo chmod 750 ~/arcolinuxb-build/archiso/airootfs/etc/sudoers.d
 sudo chmod 750 ~/arcolinuxb-build/archiso/airootfs/etc/polkit-1/rules.d
 sudo chgrp polkitd ~/arcolinuxb-build/archiso/airootfs/etc/polkit-1/rules.d
 
 echo "Deleting the work folder if one exists - clean up"
-[ -d ../work ] && rm -rf ../work
+[ -d work ] && rm -rf work
 
 cd ~/arcolinuxb-build/archiso
 
