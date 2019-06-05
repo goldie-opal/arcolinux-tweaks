@@ -15,10 +15,9 @@ function installIntelUcode() {
 
 
 function installNvidiaDrivers() {
-	# Install nVidia drivers and Bumblebee
-	sudo pacman -S --noconfirm --needed nvidia bumblebee nvidia-utils bbswitch primus lib32-virtualgl lib32-nvidia-utils lib32-primus nvidia-settings
-	sudo gpasswd -a $USER bumblebee
-	sudo systemctl enable bumblebeed.service
+	# Install nVidia drivers and Optimus Manager
+	sudo pacman -S --noconfirm --needed nvidia nvidia-utils bbswitch lib32-virtualgl lib32-nvidia-utils  nvidia-settings xf86-video-nouveau
+	yay -S optimus-manager optimus-manager-qt
 }
 
 
