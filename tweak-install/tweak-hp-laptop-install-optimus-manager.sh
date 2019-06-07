@@ -18,6 +18,7 @@ function installNvidiaDrivers() {
 	# Install nVidia drivers and Optimus Manager
 	sudo pacman -S --noconfirm --needed nvidia nvidia-utils bbswitch lib32-virtualgl lib32-nvidia-utils  nvidia-settings xf86-video-nouveau
 	yay -S optimus-manager optimus-manager-qt
+	sudo systemctl enable optimus-manager.service
 }
 
 
