@@ -1,9 +1,0 @@
-[desktop/interface]
-gtk-theme='vimix-dark-laptop-doder'
-icon-theme='Vimix-Doder'
-
-[desktop/wm/preferences]
-theme='vimix-dark-laptop-doder'
-
-[theme]
-name='vimix-dark-laptop-doder'

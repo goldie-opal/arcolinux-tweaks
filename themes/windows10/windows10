@@ -1,9 +1,0 @@
-[desktop/interface]
-gtk-theme='Windows10'
-icon-theme='Windows10'
-
-[desktop/wm/preferences]
-theme='Windows10'
-
-[theme]
-name='Windows10'
