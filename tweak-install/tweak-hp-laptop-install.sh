@@ -6,6 +6,11 @@ set -e
 #
 ##################################################################################################################
 
+function updateMirrors() {
+	sudo su -c 'echo -e "Server = http://mirror.internode.on.net/pub/archlinux/\$repo/os/\$arch\nServer = http://ftp.iinet.net.au/pub/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist'
+	sudo pacman -Syu	
+}
+
 
 function installIntelUcode() {
 	# Install intel microcode
@@ -13,12 +18,19 @@ function installIntelUcode() {
 	sudo grub-mkconfig -o /boot/grub/grub.cfg
 }
 
-
 function installNvidiaDrivers() {
 	# Install nVidia drivers and Bumblebee
 	sudo pacman -S --noconfirm --needed nvidia bumblebee nvidia-utils bbswitch primus lib32-virtualgl lib32-nvidia-utils lib32-primus nvidia-settings
 	sudo gpasswd -a $USER bumblebee
 	sudo systemctl enable bumblebeed.service
+}
+
+
+function installNvidiaDriversOptimusManager() {
+	# Install nVidia drivers and Optimus Manager
+	sudo pacman -S --noconfirm --needed nvidia nvidia-utils bbswitch lib32-virtualgl lib32-nvidia-utils  nvidia-settings xf86-video-nouveau
+	yay -S optimus-manager optimus-manager-qt
+	sudo systemctl enable optimus-manager.service
 }
 
 
@@ -60,9 +72,33 @@ function applyTweaks() {
 	sudo systemctl mask lvm2-monitor
 }
 
+function installWine() {
+	sudo pacman -S --noconfirm --needed lib32-alsa-plugins lib32-libpulse
+	yay -S wine-installer
+}
+
+function installWineStaging() {
+	sudo pacman -S --noconfirm --needed lib32-alsa-plugins lib32-libpulse wine-staging
+	yay -S wine-installer
+}
+
+function installMintTheme() {
+	if pacman -Qi "mint-x-icons" &> /dev/null; then
+		dconf load /org/cinnamon/ < mint-y-aqua
+	else
+		yay -S --noconfirm mint-x-icons
+		yay -S --noconfirm mint-y-icons
+		yay -S --noconfirm mint-themes
+		dconf load /org/cinnamon/ < mint-y-aqua
+	fi
+}
+
+updateMirrors
 installIntelUcode
-installNvidiaDrivers
+installNvidiaDriversOptimusManager
 setHardwareClock
 #installBlueToothDriver
+installWineStaging
 setPeriodicTrim
 applyTweaks
+installMintTheme
