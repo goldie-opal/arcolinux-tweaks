@@ -11,6 +11,11 @@ function updateMirrors() {
 	sudo pacman -Syu	
 }
 
+function disableReflector() {
+	# Disable reflector service to keep local mirrors
+	sudo systemctl stop reflector.timer
+	sudo systemctl disable reflector.timer
+}
 
 function installIntelUcode() {
 	# Install intel microcode
@@ -25,14 +30,17 @@ function installNvidiaDrivers() {
 	sudo systemctl enable bumblebeed.service
 }
 
-
 function installNvidiaDriversOptimusManager() {
 	# Install nVidia drivers and Optimus Manager
-	sudo pacman -S --noconfirm --needed nvidia nvidia-utils bbswitch lib32-virtualgl lib32-nvidia-utils  nvidia-settings xf86-video-nouveau
-	yay -S optimus-manager optimus-manager-qt
-	sudo systemctl enable optimus-manager.service
-}
+	sudo pacman -S --noconfirm --needed nvidia nvidia-utils bbswitch lib32-virtualgl lib32-nvidia-utils nvidia-settings xf86-video-nouveau
 
+	if pacman -Qi "optimus-manager" &> /dev/null; then
+		echo
+	else
+		yay -S optimus-manager optimus-manager-qt
+		sudo systemctl enable optimus-manager.service
+	fi	
+}
 
 function setHardwareClock() {
 	# Configure hw clock to use localtime for dual booting
@@ -40,13 +48,17 @@ function setHardwareClock() {
 	sudo hwclock --systohc --local
 }
 
-
 function installBlueToothDriver() {
 	# Install Bluetooth Driver -  may be causing issues with latest kernels
-	sudo pacman --needed --noconfirm -S linux-headers dkms
-	yay -S rtbth-dkms-git
-	sudo touch /etc/modules-load.d/rtbth.conf
-	sudo su -c 'echo -e "rtbth" > /etc/modules-load.d/rtbth.conf'
+	if pacman -Qi "rtbth-dkms-git" &> /dev/null; then
+		echo
+	else
+		sudo pacman --needed --noconfirm -S linux-headers dkms
+		yay -S rtbth-dkms-git
+		sudo touch /etc/modules-load.d/rtbth.conf
+		sudo su -c 'echo -e "rtbth" > /etc/modules-load.d/rtbth.conf'
+	fi
+
 }
 
 function setPeriodicTrim() {
@@ -58,11 +70,13 @@ function setPeriodicTrim() {
 
 function applyTweaks() {
 	# Fix dns
-	sudo pacman -S systemd-resolvconf
+	sudo pacman -S --needed systemd-resolvconf
 
 	# Set number of cores
 	~/.bin/main/000-use-all-cores-makepkg-conf-v3.sh
+}
 
+function lvmFix() {
 	# Faster shutdown
 	FIND="use_lvmetad = 1"
 	REPLACE="use_lvmetad = 0"
@@ -74,12 +88,20 @@ function applyTweaks() {
 
 function installWine() {
 	sudo pacman -S --noconfirm --needed lib32-alsa-plugins lib32-libpulse
-	yay -S wine-installer
+	if pacman -Qi "wine-installer" &> /dev/null; then
+		echo
+	else
+		yay -S wine-installer		
+	fi
 }
 
 function installWineStaging() {
 	sudo pacman -S --noconfirm --needed lib32-alsa-plugins lib32-libpulse wine-staging
-	yay -S wine-installer
+	if pacman -Qi "wine-installer" &> /dev/null; then
+		echo
+	else
+		yay -S wine-installer		
+	fi
 }
 
 function installMintTheme() {
@@ -94,11 +116,15 @@ function installMintTheme() {
 }
 
 updateMirrors
+disableReflector
 installIntelUcode
+#installNvidiaDrivers
 installNvidiaDriversOptimusManager
 setHardwareClock
 #installBlueToothDriver
+#installWine
 installWineStaging
 setPeriodicTrim
 applyTweaks
+lvmFix
 installMintTheme

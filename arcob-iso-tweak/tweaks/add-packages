@@ -10,3 +10,7 @@ mint-themes
 youtube-dl-gui-git
 ttf-mac-fonts
 tamzen-font-git
+lib32-alsa-plugins
+lib32-libpulse
+wine-staging
+wine-installer
