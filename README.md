@@ -1,2 +1,2 @@
 # arcolinux-tweaks
-Scripts to tweak Arco Linux
+Scripts to tweak ArcoLinux

@@ -121,7 +121,7 @@ installIntelUcode
 #installNvidiaDrivers
 installNvidiaDriversOptimusManager
 setHardwareClock
-#installBlueToothDriver
+installBlueToothDriver
 #installWine
 installWineStaging
 setPeriodicTrim
