@@ -11,12 +11,6 @@ function updateMirrors() {
 	sudo pacman -Syu	
 }
 
-function disableReflector() {
-	# Disable reflector service to keep local mirrors
-	sudo systemctl stop reflector.timer
-	sudo systemctl disable reflector.timer
-}
-
 function installIntelUcode() {
 	# Install intel microcode
 	sudo pacman -S --noconfirm intel-ucode
@@ -71,36 +65,27 @@ function setPeriodicTrim() {
 function applyTweaks() {
 	# Fix dns
 	sudo pacman -S --needed systemd-resolvconf
-
+	sudo pacman -S --needed arcolinux-tweak-tool-git vivaldi-widevine vivaldi-codecs-ffmpeg-extra-bin
+	yay youtube-dl-gui-git flashplugin pepper-flash
 	# Set number of cores
-	~/.bin/main/000-use-all-cores-makepkg-conf-v3.sh
-}
-
-function lvmFix() {
-	# Faster shutdown
-	FIND="use_lvmetad = 1"
-	REPLACE="use_lvmetad = 0"
-	find /etc/lvm/lvm.conf -type f -exec sudo sed -i "s/$FIND/$REPLACE/g" {} \;
-	sudo systemctl stop lvm2-lvmetad.socket lvm2-lvmetad.service
-	sudo systemctl disable lvm2-lvmetad.socket lvm2-lvmetad.service
-	sudo systemctl mask lvm2-monitor
+	~/.bin/main/000-use-all-cores-makepkg-conf-v4.sh
 }
 
 function installWine() {
 	sudo pacman -S --noconfirm --needed lib32-alsa-plugins lib32-libpulse
-	if pacman -Qi "wine-installer" &> /dev/null; then
+	if pacman -Qi "wine-installer-git" &> /dev/null; then
 		echo
 	else
-		yay -S wine-installer		
+		yay -S wine-installer-git		
 	fi
 }
 
 function installWineStaging() {
 	sudo pacman -S --noconfirm --needed lib32-alsa-plugins lib32-libpulse wine-staging
-	if pacman -Qi "wine-installer" &> /dev/null; then
+	if pacman -Qi "wine-installer-git" &> /dev/null; then
 		echo
 	else
-		yay -S wine-installer		
+		yay -S wine-installer-git
 	fi
 }
 
@@ -116,7 +101,6 @@ function installMintTheme() {
 }
 
 updateMirrors
-disableReflector
 installIntelUcode
 #installNvidiaDrivers
 installNvidiaDriversOptimusManager
@@ -126,5 +110,4 @@ installBlueToothDriver
 installWineStaging
 setPeriodicTrim
 applyTweaks
-lvmFix
 installMintTheme
