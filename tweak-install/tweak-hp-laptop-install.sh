@@ -7,7 +7,7 @@ set -e
 ##################################################################################################################
 
 function updateMirrors() {
-	sudo su -c 'echo -e "Server = http://mirror.internode.on.net/pub/archlinux/\$repo/os/\$arch\nServer = http://ftp.iinet.net.au/pub/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist'
+	1
 	sudo pacman -Syu	
 }
 
@@ -64,9 +64,8 @@ function setPeriodicTrim() {
 
 function applyTweaks() {
 	# Fix dns
-	sudo pacman -S --needed systemd-resolvconf
-	sudo pacman -S --needed arcolinux-tweak-tool-git vivaldi-widevine vivaldi-codecs-ffmpeg-extra-bin
-	yay youtube-dl-gui-git flashplugin pepper-flash
+	sudo pacman -S --needed systemd-resolvconf vivaldi-widevine vivaldi-ffmpeg-codecs flashplugin pepper-flash
+	yay youtube-dl-gui-git 
 	# Set number of cores
 	~/.bin/main/000-use-all-cores-makepkg-conf-v4.sh
 }
@@ -101,13 +100,13 @@ function installMintTheme() {
 }
 
 updateMirrors
-installIntelUcode
+#installIntelUcode
 #installNvidiaDrivers
 installNvidiaDriversOptimusManager
 setHardwareClock
 installBlueToothDriver
 #installWine
-installWineStaging
+#installWineStaging
 setPeriodicTrim
 applyTweaks
 installMintTheme
