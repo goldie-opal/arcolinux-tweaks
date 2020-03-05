@@ -7,7 +7,6 @@ set -e
 ##################################################################################################################
 
 function updateMirrors() {
-	1
 	sudo pacman -Syu	
 }
 
@@ -68,6 +67,10 @@ function applyTweaks() {
 	yay youtube-dl-gui-git 
 	# Set number of cores
 	~/.bin/main/000-use-all-cores-makepkg-conf-v4.sh
+	sudo sed -i 's/loglevel=/udev.log_priority=/g' /etc/defaults/grub
+	sudo grub-mkconfig -o /boot/grub/grub.cfg
+	sudo sed -i 's/ fsck / /g' /etc/mkinitcpio.conf
+	sudo mkinitcpio -p linux
 }
 
 function installWine() {
