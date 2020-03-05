@@ -7,6 +7,7 @@ set -e
 ##################################################################################################################
 
 function updateMirrors() {
+	sudo su -c 'echo -e "Server = http://mirror.internode.on.net/pub/archlinux/\$repo/os/\$arch\nServer = http://ftp.iinet.net.au/pub/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist'
 	sudo pacman -Syu	
 }
 
@@ -98,7 +99,9 @@ function installMintTheme() {
 		yay -S --noconfirm mint-x-icons
 		yay -S --noconfirm mint-y-icons
 		yay -S --noconfirm mint-themes
-		dconf load /org/cinnamon/ < mint-y-aqua
+		yay -S --noconfirm papirus-maia-icon-theme-git
+		dconf load /org/cinnamon/ < mint-y-dark-teal
+		sudo cp lightdm-gtk-greeter.conf /etc/lightdm
 	fi
 }
 

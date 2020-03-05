@@ -15,4 +15,5 @@ else
 	yay -S --noconfirm mint-themes
 	yay -S --noconfirm papirus-maia-icon-theme-git
 	dconf load /org/cinnamon/ < mint-y-dark-teal
+	sudo cp lightdm-gtk-greeter.conf /etc/lightdm
 fi
