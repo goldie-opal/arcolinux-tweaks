@@ -1,0 +1,9 @@
+[desktop/interface]
+gtk-theme='Mint-Y-Dark-Teal'
+icon-theme='Papirus-Adapta-Nokto-Maia'
+
+[desktop/wm/preferences]
+theme='Mint-Y-Dark'
+
+[theme]
+name='Mint-Y-Dark-Teal'
