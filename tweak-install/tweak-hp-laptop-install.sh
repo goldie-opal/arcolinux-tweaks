@@ -17,13 +17,6 @@ function installIntelUcode() {
 	sudo grub-mkconfig -o /boot/grub/grub.cfg
 }
 
-function installNvidiaDrivers() {
-	# Install nVidia drivers and Bumblebee
-	sudo pacman -S --noconfirm --needed nvidia bumblebee nvidia-utils bbswitch primus lib32-virtualgl lib32-nvidia-utils lib32-primus nvidia-settings
-	sudo gpasswd -a $USER bumblebee
-	sudo systemctl enable bumblebeed.service
-}
-
 function installNvidiaDriversOptimusManager() {
 	# Install nVidia drivers and Optimus Manager
 	sudo pacman -S --noconfirm --needed nvidia nvidia-utils bbswitch lib32-virtualgl lib32-nvidia-utils nvidia-settings xf86-video-nouveau
@@ -31,7 +24,7 @@ function installNvidiaDriversOptimusManager() {
 	if pacman -Qi "optimus-manager" &> /dev/null; then
 		echo
 	else
-		yay -S optimus-manager optimus-manager-qt
+		yay -S --noconfirm optimus-manager optimus-manager-qt
 		sudo systemctl enable optimus-manager.service
 	fi	
 }
@@ -48,7 +41,7 @@ function installBlueToothDriver() {
 		echo
 	else
 		sudo pacman --needed --noconfirm -S linux-headers dkms
-		yay -S rtbth-dkms-git
+		yay -S --noconfirm rtbth-dkms-git
 		sudo touch /etc/modules-load.d/rtbth.conf
 		sudo su -c 'echo -e "rtbth" > /etc/modules-load.d/rtbth.conf'
 	fi
@@ -70,29 +63,12 @@ function applyTweaks() {
 	yay youtube-dl-gui-git 
 	# Set number of cores
 	~/.bin/main/000-use-all-cores-makepkg-conf-v4.sh
-	sudo sed -i 's/loglevel=/udev.log_priority=/g' /etc/defaults/grub
+	sudo sed -i 's/loglevel=/udev.log_priority=/g' /etc/default/grub
 	sudo grub-mkconfig -o /boot/grub/grub.cfg
 	sudo sed -i 's/ fsck/ /g' /etc/mkinitcpio.conf
 	sudo mkinitcpio -p linux
 }
 
-function installWine() {
-	sudo pacman -S --noconfirm --needed lib32-alsa-plugins lib32-libpulse
-	if pacman -Qi "wine-installer-git" &> /dev/null; then
-		echo
-	else
-		yay -S wine-installer-git		
-	fi
-}
-
-function installWineStaging() {
-	sudo pacman -S --noconfirm --needed lib32-alsa-plugins lib32-libpulse wine-staging
-	if pacman -Qi "wine-installer-git" &> /dev/null; then
-		echo
-	else
-		yay -S wine-installer-git
-	fi
-}
 
 function installMintTheme() {
 	if pacman -Qi "mint-x-icons" &> /dev/null; then
@@ -108,19 +84,16 @@ function installMintTheme() {
 }
 
 function Gaming() {
-	sudo pacman -S --needed wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader wine-gecko wine-mono
-	sudo pacman -S arcolinux-meta-steam lutris
+	sudo pacman -S --needed --noconfirm wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader wine-gecko wine-mono
+	sudo pacman -S --needed --noconfirm arcolinux-meta-steam lutris
 }
 
 
 updateMirrors
 installIntelUcode
-#installNvidiaDrivers
 installNvidiaDriversOptimusManager
 setHardwareClock
 installBlueToothDriver
-#installWine
-#installWineStaging
 setPeriodicTrim
 applyTweaks
 installMintTheme
