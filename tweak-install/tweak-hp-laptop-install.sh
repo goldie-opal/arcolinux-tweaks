@@ -64,7 +64,9 @@ function setPeriodicTrim() {
 
 function applyTweaks() {
 	# Fix dns
-	sudo pacman -S --needed systemd-resolvconf vivaldi-widevine vivaldi-ffmpeg-codecs flashplugin pepper-flash
+	sudo pacman -S --needed systemd-resolvconf 
+	sudo pacman -S --needed --noconfirm vivaldi-widevine vivaldi-ffmpeg-codecs flashplugin pepper-flash
+	sudo pacman -S --needed --noconfirm qt5-translations aspell-en gimp-help-en hunspell-en_AU hyphen-en firefox-i18n-en-us thunderbird-i18n-en-us hunspell-en_US
 	yay youtube-dl-gui-git 
 	# Set number of cores
 	~/.bin/main/000-use-all-cores-makepkg-conf-v4.sh
