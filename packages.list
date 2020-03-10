@@ -71,11 +71,3 @@ arcolinux-meta-steam
 lutris
 linux-headers
 dkms
-cmake
-rhash
-sassc
-python2-wxpython3
-poppler-qt5
-ruby
-rubygems
-python-evdev
