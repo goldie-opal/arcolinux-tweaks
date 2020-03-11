@@ -57,10 +57,14 @@ function setPeriodicTrim() {
 
 function applyTweaks() {
 	# Fix dns
-	sudo pacman -S --needed systemd-resolvconf 
+	#sudo pacman -S --needed systemd-resolvconf 
 	sudo pacman -S --needed --noconfirm vivaldi-widevine vivaldi-ffmpeg-codecs flashplugin pepper-flash gimp vivaldi vlc xreader galculator vlc timeshift gnome-logs gnome-system-log
 	sudo pacman -S --needed --noconfirm qt5-translations aspell-en gimp-help-en hunspell-en_AU hyphen-en firefox-i18n-en-us hunspell-en_US
-	yay youtube-dl-gui-git 
+	yay -S --noconfirm youtube-dl-gui-git
+	# Extra Network Manager VPN clients
+	sudo pacman -S --needed --noconfirm networkmanager-fortisslvpn openfortivpn xl2tpd	
+	yay -S --noconfirm networkmanager-l2tp
+
 	# Set number of cores
 	~/.bin/main/000-use-all-cores-makepkg-conf-v4.sh
 	sudo sed -i 's/loglevel=/udev.log_priority=/g' /etc/default/grub
@@ -78,14 +82,19 @@ function installMintTheme() {
 		yay -S --noconfirm mint-y-icons
 		yay -S --noconfirm mint-themes
 		yay -S --noconfirm papirus-maia-icon-theme-git
+		yay -S --noconfirm lightdm-slick-greeter lightdm-settings
 		dconf load /org/cinnamon/ < mint-y-dark-teal
-		sudo cp lightdm-gtk-greeter.conf /etc/lightdm
+		sudo cp *.conf /etc/lightdm
 	fi
 }
 
 function Gaming() {
 	sudo pacman -S --needed --noconfirm wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader wine-gecko wine-mono
 	sudo pacman -S --needed --noconfirm arcolinux-meta-steam lutris
+}
+
+function installVirtualBox() {
+	sudo pacman -S --needed --noconfirm virtualbox virtualbox-host-modules-arch
 }
 
 
