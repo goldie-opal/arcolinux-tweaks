@@ -107,3 +107,4 @@ setPeriodicTrim
 applyTweaks
 installMintTheme
 Gaming
+installVirtualBox
