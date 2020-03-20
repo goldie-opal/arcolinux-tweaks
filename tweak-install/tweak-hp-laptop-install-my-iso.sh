@@ -56,8 +56,8 @@ function setPeriodicTrim() {
 }
 
 function applyTweaks() {
-	# Fix dns
-	#sudo pacman -S --needed systemd-resolvconf 
+	# Fix dns issues during and after vpn connection
+	sudo pacman -S --needed systemd-resolvconf 
 
 	# Set number of cores
 	~/.bin/main/000-use-all-cores-makepkg-conf-v4.sh
